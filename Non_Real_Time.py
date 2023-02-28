@@ -59,6 +59,8 @@ for wav_file in os.listdir(input_path):
         # reshape magnitude to input dimensions
         in_mag = np.reshape(in_mag, (1, 1, -1)).astype('float32')
         # set tensors to the first model
+        print("state_1: ", type(states_1), states_1.dtype, states_1.shape)
+        print("in_mag: ", type(in_mag), in_mag.dtype, in_mag.shape)
         interpreter_1.set_tensor(input_details_1[1]['index'], states_1)
         interpreter_1.set_tensor(input_details_1[0]['index'], in_mag)
         # run calculation
